@@ -25,7 +25,52 @@ namespace TpCinema
 
         public int nbPlacesDisponibles()
         {
+            nbplacesvendu = nbplacesvn + nbplacesvr;
+            nbplaces = nbplaces - nbplacesvendu;
             return nbplaces;
         }
+
+        public void VendrePlaces(int nbre, bool tarifReduit)
+        {
+            int nbre;
+            bool tarifReduit;
+            int reduc;
+
+            if (tarifReduit=true)
+            {
+             tarif=tarif*0.8;
+            }
+
+            if (nbre>nbplaces)
+            {
+            ("Vente impossible");
+            }
+
+            
+        }
+
+        public void remiseAZero()
+        {
+        
+        }
+
+        public double chiffreAffaires()
+        {
+            
+        }
+
+        public double tauxRemplissage()
+
+        {
+
+        }        
+        
+        public string toString()
+
+        {
+        
+           
+        }
     }
+
 }
