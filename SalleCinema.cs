@@ -25,6 +25,7 @@ namespace TpCinema
 
         public int nbPlacesDisponibles()
         {
+            int nbplacesvendu;
             nbplacesvendu = nbplacesvn + nbplacesvr;
             nbplaces = nbplaces - nbplacesvendu;
             return nbplaces;
@@ -32,16 +33,21 @@ namespace TpCinema
 
         public void VendrePlaces(int nbre, bool tarifReduit)
         {
-            int nbre;
-            bool tarifReduit;
             int reduc;
 
-            if (tarifReduit=true)
+            if (this.nbPlacesDisponibles()-nbre>=0)
             {
-             tarif=tarif*0.8;
-            }
+                 if (tarifReduit)
+                 {
+                    reduc=this.tarif*0.8*nbre;
+                 }
+                 else
+                 {
+                    reduc=tarif*nbre;
+                 }
 
-            if (nbre>nbplaces)
+            }
+            else
             {
             ("Vente impossible");
             }
@@ -51,26 +57,34 @@ namespace TpCinema
 
         public void remiseAZero()
         {
-        
+        nbplacesvn=0;
+        nbplacesvr=0;
         }
 
         public double chiffreAffaires()
         {
             
+         return  (nbplacevn*tarif) + (nbplacesvr*tarif*0.8);
         }
 
         public double tauxRemplissage()
 
         {
+            return (nbplacesvn+nbplacesvr)/nbplaces*100;
 
         }        
         
         public string toString()
 
         {
-        
-           
+            return
+         ("Film joué : "+titre+(",")); 
+         ("Nombre de places"+nbplaces);
+         ("Prix d'une place :"+tarif);
+         (nbplacesvn+"vendues au tarif normal");
+         (nbplacesvr+ "vendues au tarif réduit"); 
         }
+
     }
 
 }
