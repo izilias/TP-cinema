@@ -8,14 +8,16 @@ namespace TpCinema
 {
     class SalleCinema
     {
+        public int numsal;
         private string titre;
         private int nbplaces;
         private double tarif;
         private int nbplacesvn;
         private int nbplacesvr;
 
-        public SalleCinema(string leTitre, int nombrePlaces, double leTarif)
+        public SalleCinema(string leTitre, int nombrePlaces, double leTarif, int sallenumero)
         {
+            this.numsal = sallenumero;
             this.titre = leTitre;
             this.nbplaces = nombrePlaces;
             this.tarif = leTarif;
@@ -31,28 +33,28 @@ namespace TpCinema
             return nbplaces;
         }
 
-        public void VendrePlaces(int nbre, bool tarifReduit)
+        public string VendrePlaces(int nbre, bool tarifReduit)
         {
-            int reduc;
-
+            
+            string msg;
             if (this.nbPlacesDisponibles()-nbre>=0)
             {
                  if (tarifReduit)
                  {
-                    reduc=this.tarif*0.8*nbre;
+                    msg=Convert.ToString(this.tarif*0.8*nbre);
                  }
                  else
                  {
-                    reduc=tarif*nbre;
+                    msg=Convert.ToString(tarif*nbre);
                  }
 
             }
             else
             {
-            ("Vente impossible");
+            msg=("Vente impossible");
             }
 
-            
+            return msg;
         }
 
         public void remiseAZero()
@@ -64,7 +66,7 @@ namespace TpCinema
         public double chiffreAffaires()
         {
             
-         return  (nbplacevn*tarif) + (nbplacesvr*tarif*0.8);
+         return  (nbplacesvn*tarif) + (nbplacesvr*tarif*0.8);
         }
 
         public double tauxRemplissage()
