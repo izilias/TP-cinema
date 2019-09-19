@@ -24,10 +24,10 @@ namespace TpCinema
             lesSalles.Add(Salle1);
             lesSalles.Add(Salle2);
         }
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
 
 
 
@@ -40,6 +40,24 @@ namespace TpCinema
                 if (Convert.ToInt32(textBox1.Text) == salle.numsal)
                 {
                     label1.Text = salle.toString();
+                }
+            }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (SalleCinema salle in lesSalles)
+            {
+                if (Convert.ToInt32(textBox1.Text) == salle.numsal)
+                {
+                    salle.VendrePlaces(Convert.ToInt32(textBox2.Text), checkBox1.Checked);
+                    label1.Text = salle.toString();
+                    label5.Text = Convert.ToString(salle.chiffreAffaires());
                 }
             }
         }

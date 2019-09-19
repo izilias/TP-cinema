@@ -42,11 +42,13 @@ namespace TpCinema
                  if (tarifReduit)
                  {
                     msg=Convert.ToString(this.tarif*0.8*nbre);
+                    this.nbplacesvr += nbre;
                  }
                  else
                  {
                     msg=Convert.ToString(tarif*nbre);
-                 }
+                    this.nbplacesvn += nbre;
+                }
 
             }
             else
@@ -79,12 +81,15 @@ namespace TpCinema
         public string toString()
 
         {
-            return
-         ("Film joué : "+titre+(",")); 
-         ("Nombre de places"+nbplaces);
-         ("Prix d'une place :"+tarif);
-         (nbplacesvn+"vendues au tarif normal");
-         (nbplacesvr+ "vendues au tarif réduit"); 
+            
+         
+            return ("Filme joué : " + this.titre + ", \n Nombre de places : " + this.nbplaces + " , \n Prix d'une place : " + this.tarif + " , \n" + this.nbplacesvn + " places vendues au tarif normal , \n" + this.nbplacesvr + " places vendues au tarif réduit.");
+
+        }
+
+        public int getnumerosalle()
+        {
+            return this.numsal;
         }
 
     }
